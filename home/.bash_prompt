@@ -1,0 +1,42 @@
+NO_COLOR='\e[0m' # disable any colors
+
+BLACK='\e[0;30m' # Black - Regular
+RED='\e[0;31m' # Red
+GREEN='\e[0;32m' # Green
+YELLOW='\e[0;33m' # Yellow
+BLUE='\e[0;34m' # Blue
+PURPLE='\e[0;35m' # Purple
+CYAN='\e[0;36m' # Cyan
+WHITE='\e[0;37m' # White
+EBLACK='\e[1;30m' # Black - Bold
+ERED='\e[1;31m' # Red
+EGREEN='\e[1;32m' # Green
+EYELLOW='\e[1;33m' # Yellow
+EBLUE='\e[1;34m' # Blue
+EPURPLE='\e[1;35m' # Purple
+ECYAN='\e[1;36m' # Cyan
+EWHITE='\e[1;37m' # White
+UNDBLK='\e[4;30m' # Black - Underline
+UNDRED='\e[4;31m' # Red
+UNDGRN='\e[4;32m' # Green
+UNDYLW='\e[4;33m' # Yellow
+UNDBLU='\e[4;34m' # Blue
+UNDPUR='\e[4;35m' # Purple
+UNDCYN='\e[4;36m' # Cyan
+UNDWHT='\e[4;37m' # White
+BAKBLK='\e[40m'   # Black - Background
+BAKRED='\e[41m'   # Red
+BAKGRN='\e[42m'   # Green
+BAKYLW='\e[43m'   # Yellow
+BAKBLU='\e[44m'   # Blue
+BAKPUR='\e[45m'   # Purple
+BAKCYN='\e[46m'   # Cyan
+BAKWHT='\e[47m'   # White
+TXTRST='\e[0m'    # Text Reset
+
+function parse_git_branch {
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+
+PS1="\n\[$PURPLE\]\h\[$NO_COLOR\] \u:\[$EWHITE\]\w  \[$YELLOW\]\$(parse_git_branch) \[$NO_COLOR\] \n→ "
+
